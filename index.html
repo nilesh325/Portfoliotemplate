@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth" style="scroll-padding-top: 5rem;">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Fade in animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 1s forwards;
+    }
+
+    .delay-500 { animation-delay: 0.5s; }
+    .delay-700 { animation-delay: 0.7s; }
+    .delay-1500 { animation-delay: 1.5s; }
+    .delay-2000 { animation-delay: 2s; }
+    .delay-2500 { animation-delay: 2.5s; }
+
+    @keyframes spin-slow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes spin-reverse {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(-360deg); }
+    }
+
+    .animate-spin-slow { animation: spin-slow 20s linear infinite; }
+    .animate-spin-reverse { animation: spin-reverse 20s linear infinite; }
+
+    /* --- NAVBAR UNDERLINE EFFECT --- */
+    .nav-link {
+      position: relative; /* Base for pseudo-element */
+      text-decoration: none;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #f472b6; /* Tailwind's rose-400 */
+      transform: scaleX(0); /* Start hidden */
+      transform-origin: center; /* Grow from the center */
+      transition: transform 0.3s ease-out;
+    }
+
+    .nav-link:hover::after {
+      transform: scaleX(1); /* Animate to full width */
+    }
+
+    .nav-link:hover {
+      color: #f472b6; /* Keep the text color change on hover */
+    }
+    /* --- END NEW NAVBAR EFFECT --- */
+
+  </style>
+</head>
+<body class="bg-gradient-to-b from-neutral-950 to-neutral-900 text-white ">
+
+  <nav class="fixed top-0 left-0 right-0 mx-auto max-w-4xl m-4 z-50 bg-stone-900/70 backdrop-blur-md p-3 rounded-xl">
+    <ul class="flex justify-center space-x-4 text-sm md:text-base">
+      <li><a href="#home" class="nav-link transition-colors duration-300 px-2 py-2 rounded-xl">Home</a></li>
+      <li><a href="#about" class="nav-link transition-colors duration-300 px-2 py-2 rounded-xl">About</a></li>
+      <li><a href="#experience" class="nav-link transition-colors duration-300 px-2 py-2 rounded-xl">Experience</a></li>
+      <li><a href="#skills" class="nav-link transition-colors duration-300 px-2 py-2 rounded-xl">Skills</a></li>
+      <li><a href="#projects" class="nav-link transition-colors duration-300 px-2 py-2 rounded-xl">Projects</a></li>
+      <li><a href="#contact" class="nav-link transition-colors duration-300 px-2 py-2 rounded-xl">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main class="min-h-screen flex flex-col md:flex-row items-center justify-center px-6 md:px-16 text-center md:text-left gap-8 pt-20" id="home">
+    
+    <img src="../images/photo.png" alt="My Photo" 
+         class="bg-gradient-to-r from-rose-500 to-orange-500 w-52 md:w-60 rounded-lg shadow-lg mb-6 md:mb-0 opacity-0 animate-fade-in delay-500" />
+
+    <div class="flex flex-col items-center md:items-start">
+      <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-rose-400 to-orange-400 bg-clip-text text-transparent opacity-0 animate-fade-in delay-700">
+        Hi, I'm Nilesh 👋
+      </h1>
+
+      <p class="mt-3 sm:mt-4 text-gray-300 max-w-xs sm:max-w-md md:max-w-lg text-base sm:text-lg md:text-xl lg:text-2xl 
+               opacity-0 animate-fade-in delay-1500">
+        A passionate full-stack developer with a love for clean UI, scalable backend, and empowering beginners through accessible tech.
+      </p>
+
+      <div class="flex flex-col md:flex-row items-center md:items-start mt-6 gap-4">
+        <div class="flex flex-col sm:flex-row gap-4 opacity-0 animate-fade-in delay-2000">
+          <a href="#contact"
+             class="bg-gradient-to-r from-rose-500 to-orange-500 hover:from-rose-400 hover:to-orange-400 font-medium text-white transition-all duration-300 ease-out px-8 py-3 rounded-xl shadow-lg transform hover:scale-105">
+            Get in touch with me
+          </a>
+          
+          <a href="https://drive.google.com/file/d/1szoweKXvne9WgnpYWb2fbTxX6Qjllf9T/view?usp=sharing" download
+             class="bg-gradient-to-r from-rose-500 to-orange-500 hover:from-rose-400 hover:to-orange-400 font-medium text-white transition-all duration-300 ease-out px-8 py-3 rounded-xl shadow-lg transform hover:scale-105">
+            Download Resume
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <section id="about" class="px-6 py-16 text-white">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold bg-gradient-to-r from-rose-400 to-orange-400 bg-clip-text text-transparent text-center mb-2">
+        About Me
+      </h2>
+      <div class="h-1 w-32 mx-auto bg-gradient-to-r from-rose-400 to-orange-400 rounded-full mb-12"></div>
+  
+      <p class="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed animate-fade-in">
+        Hi, I’m <span class="text-rose-400 font-semibold">Nilesh Saraswat</span> — a passionate
+        <span class="text-orange-400 font-medium">Full-Stack Developer</span> and 
+        <span class="text-yellow-400 font-medium">AI Enthusiast</span>.  
+        I love building powerful, aesthetic, and scalable web applications with modern tech stacks.
+      </p>
+  
+      <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-neutral-800 rounded-2xl p-6 shadow-lg hover:shadow-rose-400/20 hover:-translate-y-1 transform transition-all duration-300">
+          <div class="text-3xl mb-3">💻</div>
+          <h3 class="font-semibold text-lg mb-2">Tech Stack</h3>
+          <p class="text-gray-400 text-sm">
+            Python, JavaScript, Django, Flask, React, Node.js, TailwindCSS.
+          </p>
+        </div>
+  
+        <div class="bg-neutral-800 rounded-2xl p-6 shadow-lg hover:shadow-orange-400/20 hover:-translate-y-1 transform transition-all duration-300">
+          <div class="text-3xl mb-3">🚀</div>
+          <h3 class="font-semibold text-lg mb-2">What I Do</h3>
+          <p class="text-gray-400 text-sm">
+            I develop full-stack web apps, REST APIs, and modern dashboards — optimized for performance and UX.
+          </p>
+        </div>
+  
+        <div class="bg-neutral-800 rounded-2xl p-6 shadow-lg hover:shadow-yellow-400/20 hover:-translate-y-1 transform transition-all duration-300">
+          <div class="text-3xl mb-3">🎯</div>
+          <h3 class="font-semibold text-lg mb-2">Vision</h3>
+          <p class="text-gray-400 text-sm">
+            To create impactful tech solutions that merge creativity with real-world problem-solving.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="px-6 py-16 text-white opacity-0 transition-opacity duration-1000">
+    <h2 class="text-3xl font-bold bg-gradient-to-r from-rose-400 to-orange-400 bg-clip-text text-transparent m-4 text-center">Experience</h2>
+    <div class="h-1 w-32 mx-auto bg-gradient-to-r from-rose-400 to-orange-400 rounded-full mb-12"></div>
+    
+    <div class="relative max-w-5xl mx-auto">
+      <div class="absolute left-1/2 transform -translate-x-1/2 h-full border-l-2 border-rose-500"></div>
+  
+      <div class="timeline-entry relative mb-12 md:mb-20 flex flex-col md:flex-row items-start opacity-0 translate-y-10 transition-all duration-1000">
+        <div class="absolute left-1/2 transform -translate-x-1/2 w-5 h-5 border-2 border-rose-500 rounded-full bg-stone-950 z-10"></div>
+  
+        <div class="md:w-1/2 md:pl-12 bg-stone-800 rounded-2xl shadow-lg p-6 mt-6 md:mt-0 transition-all duration-300 hover:scale-105 hover:-translate-y-1 hover:shadow-2xl hover:shadow-rose-400/30">
+          <h3 class="text-xl font-semibold bg-gradient-to-r from-rose-400 to-orange-400 bg-clip-text text-transparent">Software Developer Intern — Fuel Flux Technologies</h3>
+          <p class="text-sm text-gray-400">Jun 2025 – Aug 2025 | Remote </p>
+          <ul class="list-disc list-inside mt-3 space-y-2 text-gray-300">
+            <li>Collaborated with a team of 3 interns to build a fully functional web app with backend on Azure.</li>
+            <li>Developed a mobile-responsive frontend ensuring smooth UX.</li>
+            <li>Trained & integrated a Vehicle Number Plate Detection Model.</li>
+            <li>Implemented a secure payment gateway for seamless transactions.</li>
+            <li>Worked on frontend + AI integration for performance & scalability.</li>
+          </ul>
+          <p class="mt-3 text-gray-400"><strong>Tech Stack:</strong> HTML, CSS, TailwindCSS, JS, Python, Azure, ML, Payment APIs</p>
+        </div>
+      </div>
+  
+      <div class="timeline-entry relative mb-12 md:mb-20 flex flex-col md:flex-row items-start justify-end opacity-0 translate-y-10 transition-all duration-1000">
+        <div class="absolute left-1/2 transform -translate-x-1/2 w-5 h-5 border-2 border-rose-500 rounded-full bg-stone-950 z-10"></div>
+  
+        <div class="md:w-1/2 md:pl-8 md:text-left bg-stone-800 rounded-2xl shadow-lg p-6 mt-6 md:mt-0 transition-all duration-300 hover:scale-105 hover:-translate-y-1 hover:shadow-2xl hover:shadow-rose-400/30">
+          <h3 class="text-xl font-semibold bg-gradient-to-r from-rose-400 to-orange-400 bg-clip-text text-transparent">Open Source Contributor</h3>
+          <p class="text-sm text-gray-400">GirlScript Summer of Code (GSSoC)<br>Aug 2025 – Oct 2025 | Remote</p>
+          <ul class="list-disc list-inside mt-3 space-y-2 text-gray-300">
+            <li>Contributed to open-source projects during the GSSoC program.</li>
+            <li>Learned GitHub commands: clone, fork, pull, push, commit.</li>
+            <li>Contributed to Daily DSA repository by adding and solving problems.</li>
+            <li>Gained hands-on experience in version control and collaboration workflows.</li>
+          </ul>
+          <p class="mt-3 text-gray-400"><strong>Skills Learned:</strong> Git, GitHub, Open Source, Collaboration, Problem Solving</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <script>
+    // Fade-in animation for experience timeline entries
+    const experienceSection = document.getElementById('experience');
+    const timelineEntries = experienceSection.querySelectorAll('.timeline-entry');
+  
+    const observerExperience = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          experienceSection.classList.add('opacity-100');
+          timelineEntries.forEach((item, i) => {
+            setTimeout(() => {
+              item.classList.remove('translate-y-10', 'opacity-0');
+              item.classList.add('opacity-100');
+            }, i * 200); // stagger each entry
+          });
+          observerExperience.unobserve(experienceSection);
+        }
+      });
+    }, { threshold: 0.3 });
+  
+    observerExperience.observe(experienceSection);
+  </script>
+  
+  <section id="skills" class="px-6 py-16 text-white opacity-0 transition-opacity duration-1000">
+    <h2 class="text-3xl font-bold bg-gradient-to-r from-rose-400 to-orange-400 bg-clip-text text-transparent m-3 text-center">Skills</h2>
+    <div class="h-1 w-32 mx-auto bg-gradient-to-r from-rose-400 to-orange-400 rounded-full mb-12"></div>
+    
+    <div class="relative max-w-5xl mx-auto grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-8 justify-items-center">
+      
+      <div class="relative group opacity-0 transition-opacity duration-1000">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" 
+             class="w-16 h-16 cursor-pointer transform transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-1 group-hover:shadow-2xl group-hover:shadow-rose-400/30 rounded-full" alt="HTML">
+        <span class="absolute -top-8 left-1/2 -translate-x-1/2 bg-rose-500 text-white text-xs font-semibold px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+          HTML
+        </span>
+      </div>
+  
+      <div class="relative group opacity-0 transition-opacity duration-1000">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" 
+             class="w-16 h-16 cursor-pointer transform transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-1 group-hover:shadow-2xl group-hover:shadow-rose-400/30 " alt="CSS">
+        <span class="absolute -top-8 left-1/2 -translate-x-1/2 bg-rose-500 text-white text-xs font-semibold px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+          CSS
+        </span>
+      </div>
+  
+      <div class="relative group opacity-0 transition-opacity duration-1000">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" 
+             class="w-16 h-16 cursor-pointer transform transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-1 group-hover:shadow-2xl group-hover:shadow-rose-400/30 " alt="JavaScript">
+        <span class="absolute -top-8 left-1/2 -translate-x-1/2 bg-rose-500 text-white text-xs font-semibold px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+          JavaScript
+        </span>
+      </div>
+  
+      <div class="relative group opacity-0 transition-opacity duration-1000">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg" 
+             class="w-16 h-16 cursor-pointer transform transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-1 group-hover:shadow-2xl group-hover:shadow-rose-400/30 rounded-full" alt="TailwindCSS">
+        <span class="absolute -top-8 left-1/2 -translate-x-1/2 bg-rose-500 text-white text-xs font-semibold px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+          TailwindCSS
+        </span>
+      </div>
+  
+      <div class="relative group opacity-0 transition-opacity duration-1000">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" 
+             class="w-16 h-16 cursor-pointer transform transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-1 group-hover:shadow-2xl group-hover:shadow-rose-400/30" alt="Flask">
+        <span class="absolute -top-8 left-1/2 -translate-x-1/2 bg-rose-500 text-white text-xs font-semibold px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+          Flask
+        </span>
+      </div>
+  
+      <div class="relative group opacity-0 transition-opacity duration-1000">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" 
+             class="w-16 h-16 cursor-pointer transform transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-1 group-hover:shadow-2xl group-hover:shadow-rose-400/30 rounded-full" alt="Python">
+        <span class="absolute -top-8 left-1/2 -translate-x-1/2 bg-rose-500 text-white text-xs font-semibold px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+          Python
+        </span>
+      </div>
+  
+      <div class="relative group opacity-0 transition-opacity duration-1000">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" 
+             class="w-16 h-16 cursor-pointer transform transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-1 group-hover:shadow-2xl group-hover:shadow-rose-400/30 rounded-full" alt="Java">
+        <span class="absolute -top-8 left-1/2 -translate-x-1/2 bg-rose-500 text-white text-xs font-semibold px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+          Java
+        </span>
+      </div>
+  
+      <div class="relative group opacity-0 transition-opacity duration-1000">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" 
+             class="w-16 h-16 cursor-pointer transform transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-1 group-hover:shadow-2xl group-hover:shadow-rose-400/30 rounded-full" alt="React">
+        <span class="absolute -top-8 left-1/2 -translate-x-1/2 bg-rose-500 text-white text-xs font-semibold px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+          React
+        </span>
+      </div>
+  
+    </div>
+  </section>
+  
+  <script>
+    // Intersection Observer to trigger fade-in
+    const skillsSection = document.getElementById('skills');
+    const skillItems = skillsSection.querySelectorAll('.group');
+  
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          skillsSection.classList.add('opacity-100');
+          skillItems.forEach((item, i) => {
+            setTimeout(() => item.classList.add('opacity-100'), i * 100);
+          });
+          observer.unobserve(skillsSection);
+        }
+      });
+    }, { threshold: 0.3 });
+  
+    observer.observe(skillsSection);
+  </script>
+  
+  <section id="projects" class="px-6 py-16 text-white">
+    <h2 class="text-3xl font-bold bg-gradient-to-r from-rose-400 to-orange-400 bg-clip-text text-transparent text-center mb-2">Projects</h2>
+    <div class="h-1 w-32 mx-auto bg-gradient-to-r from-rose-400 to-orange-400 rounded-full mb-12"></div>
+  
+    <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+  
+      <div class="project-card bg-neutral-900 rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-[1.03] hover:shadow-rose-500/20">
+        <img src="../images/cons.jpg" alt="CodeCompanion" class="w-full h-52 object-cover">
+        <div class="p-5">
+          <h3 class="text-xl font-semibold bg-gradient-to-r from-rose-400 to-orange-400 bg-clip-text text-transparent mb-2">CodeCompanion</h3>
+          <p class="text-gray-300 text-sm leading-relaxed">
+            🚀 Helps students become professional developers via curated roadmaps, AI guidance, and DSA & MERN study materials.
+          </p>
+          <p class="mt-3">
+            <span class="text-rose-400 font-medium">Tech Stack:</span> HTML, Tailwind, JS, Python, Flask, AI
+          </p>
+        </div>
+      </div>
+  
+      <div class="project-card bg-neutral-900 rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-[1.03] hover:shadow-rose-500/20">
+        <img src="../images/cons.jpg" alt="Drowsiness Detector" class="w-full h-52 object-cover">
+        <div class="p-5">
+          <h3 class="text-xl font-semibold bg-gradient-to-r from-rose-400 to-orange-400 bg-clip-text text-transparent mb-2">Drowsiness Detector</h3>
+          <p class="text-gray-300 text-sm leading-relaxed">
+            🧠 Reduces road accidents by detecting driver fatigue using real-time facial analysis.
+          </p>
+          <p class="mt-3">
+            <span class="text-rose-400 font-medium">Tech Stack:</span> Python, Flask, OpenCV
+          </p>
+        </div>
+      </div>
+  
+      <div class="project-card bg-neutral-900 rounded-2xl shadow-lg overflow-hidden relative transform transition-all duration-300 hover:scale-[1.03] hover:shadow-rose-500/20">
+        <div class="relative w-full h-56 overflow-hidden group">
+          <img src="../images/fuelflux.jpg" alt="Fuel Flux" class="preview-img absolute inset-0 w-full h-full object-cover opacity-100 scale-100 transition-all duration-700 ease-in-out z-10">
+          <img src="../images/subs.jpg" alt="Fuel Flux Subscription" class="preview-img absolute inset-0 w-full h-full object-cover opacity-0 scale-95 transition-all duration-700 ease-in-out z-0 pointer-events-none">
+  
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-20"></div>
+  
+          <button class="nav-btn prev-btn absolute left-3 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-rose-500/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 z-30">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+            </svg>
+          </button>
+          <button class="nav-btn next-btn absolute right-3 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-rose-500/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 z-30">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </button>
+  
+          <div class="absolute bottom-2 w-full flex justify-center space-x-2 z-30">
+            <span class="dot w-2.5 h-2.5 rounded-full bg-rose-400 transition-all duration-300"></span>
+            <span class="dot w-2.5 h-2.5 rounded-full bg-white/30 transition-all duration-300"></span>
+          </div>
+        </div>
+  
+        <div class="p-5">
+          <h3 class="text-xl font-semibold bg-gradient-to-r from-rose-400 to-orange-400 bg-clip-text text-transparent mb-2">Fuel Flux — Internship Project</h3>
+          <p class="text-gray-300 text-sm leading-relaxed">
+            Developed a full-stack app with authentication, dashboards, and secure payment gateway integration.
+          </p>
+          <p class="mt-3 bg-gradient-to-r from-rose-400 to-orange-400 text-white p-3 rounded-md text-sm shadow-md">
+            <span class="font-bold">Note:</span> Only preview images are available due to confidentiality.
+          </p>
+        </div>
+      </div>
+  
+    </div>
+  </section>
+  
+  <script>
+    document.querySelectorAll('.project-card').forEach(card => {
+      const images = card.querySelectorAll('.preview-img');
+      const nextBtn = card.querySelector('.next-btn');
+      const prevBtn = card.querySelector('.prev-btn');
+      const dots = card.querySelectorAll('.dot');
+      let index = 0;
+  
+      if (!nextBtn || !prevBtn || images.length < 2) return;
+  
+      function showImage(i) {
+        images.forEach((img, idx) => {
+          img.style.zIndex = idx === i ? 10 : 0;
+          img.classList.toggle('opacity-100', idx === i);
+          img.classList.toggle('scale-100', idx === i);
+          img.classList.toggle('opacity-0', idx !== i);
+          img.classList.toggle('scale-95', idx !== i);
+          img.classList.toggle('pointer-events-none', idx !== i);
+        });
+        dots.forEach((dot, idx) => {
+          dot.classList.toggle('bg-rose-400', idx === i);
+          dot.classList.toggle('bg-white/30', idx !== i);
+        });
+      }
+  
+      nextBtn.addEventListener('click', () => {
+        index = (index + 1) % images.length;
+        showImage(index);
+      });
+      prevBtn.addEventListener('click', () => {
+        index = (index - 1 + images.length) % images.length;
+        showImage(index);
+      });
+  
+      showImage(index);
+    });
+  </script>
+  
+  
+  
+  <section id="contact" class="pb-16 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-4xl font-bold bg-gradient-to-r from-rose-400 to-orange-400 bg-clip-text text-transparent mb-4">Get In Touch</h2>
+      <div class="h-1 w-32 mx-auto bg-gradient-to-r from-rose-400 to-orange-400 rounded-full mb-12"></div>
+      
+      <p class="text-lg mb-6 text-gray-300">I'm always open to discussing new opportunities and interesting projects. Let's create something amazing together!</p>
+  
+      <div class="inline-flex flex-col items-center bg-stone-800 p-6 rounded-2xl shadow-lg mb-10 transition-transform hover:-translate-y-1 hover:shadow-rose-400/20">
+         <div class="p-3 bg-rose-500 rounded-full">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 13.065L2 6.75V18c0 1.1.9 2 2 2h16a2 2 0 0 0 2-2V6.75l-10 6.315zM12 11L2 4h20L12 11z"/>
+            </svg>
+          </div>
+        <span class="mt-3 text-sm text-gray-400">Email Me</span>
+        <a href="mailto:saraswatnilesh3@gmail.com" class="text-rose-400 hover:underline">saraswatnilesh3@gmail.com</a>
+      </div>
+  
+      <h3 class="text-xl font-semibold mb-4 text-rose-400">Follow Me</h3>
+      <div class="flex justify-center space-x-4">
+        <a href="httpsThree.js" target="_blank"
+           class="p-3 rounded-full bg-neutral-800 text-white transition-transform hover:scale-110 hover:bg-neutral-700">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" class="w-5 h-5" fill="currentColor">
+           <path d="M 11 4 C 7.134 4 4 7.134 4 11 L 4 39 C 4 42.866 7.134 46 11 46 L 39 46 C 42.866 46 46 42.866 46 39 L 46 11 C 46 7.134 42.866 4 39 4 L 11 4 z M 13.085938 13 L 21.023438 13 L 26.660156 21.009766 L 33.5 13 L 36 13 L 27.789062 22.613281 L 37.914062 37 L 29.978516 37 L 23.4375 27.707031 L 15.5 37 L 13 37 L 22.308594 26.103516 L 13.085938 13 z M 16.914062 15 L 31.021484 35 L 34.085938 35 L 19.978516 15 L 16.914062 15 z"/>
+          </svg>
+        </a>
+  
+        <a href="https://www.fiverr.com/s/R7537bN" target="_blank"
+           class="p-3 rounded-full bg-green-500 hover:bg-green-600 text-white transition-transform hover:scale-110">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" class="w-5 h-5" fill="currentColor">
+            <path d="M25.111 12.8v-.923h-1.752l-.77-.013c-.658 0-1.108.433-1.285.937v-.923h-1.962v5.988h1.962v-1.284-1.988c0-.597.484-1.081 1.081-1.081h.765v4.352h1.962v-1.284-1.988c0-.597.484-1.081 1.081-1.081h.974v-1.636l-.77-.013C25.738 11.863 25.288 12.297 25.111 12.8zM11.152 12.002L10.099 15.463 9.047 12.002 7.085 12.002 9.216 17.99 9.331 17.99 10.868 17.99 10.983 17.99 13.113 12.002zM3.136 12.002v-.399c0-.35.283-.633.633-.633h1.238V9.328H3.307c-1.177 0-2.132.954-2.132 2.132v.543H.028v1.587h1.147v4.4h1.962v-4.4h1.871v4.4H6.97v-4.4-1.587H5.008 3.136zM15.833 11.921h-.239c-1.607 0-2.91 1.303-2.91 2.91v.329c0 1.607 1.303 2.91 2.91 2.91h.531c1.1 0 2.042-.679 2.429-1.641l-1.73-.505c0 0-.207.593-.929.593-.815 0-1.246-.446-1.303-.952h0v-.003c-.004-.037-.006-.074-.006-.111h2.213 1.946v-.619C18.743 13.224 17.44 11.921 15.833 11.921zM14.587 14.296c.024-.538.467-.968 1.011-.968h.187c.544 0 .987.429 1.011.968H14.587zM28.754 15.689c-.674 0-1.22.546-1.22 1.22 0 .674.546 1.22 1.22 1.22.674 0 1.22-.546 1.22-1.22C29.974 16.235 29.428 15.689 28.754 15.689z"/>
+          </svg>
+        </a>
+  
+        <a href="https://linkedin.com/in/nilesh-saraswat-320156343/" class="p-3 rounded-full bg-blue-500 text-white transition-transform hover:scale-110">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.762 2.24 5 5 5h14c2.762 0 5-2.238 5-5v-14c0-2.76-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.27c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.27h-3v-5.604c0-1.337-.026-3.065-1.867-3.065-1.868 0-2.154 1.46-2.154 2.968v5.701h-3v-10h2.881v1.367h.041c.401-.757 1.379-1.554 2.838-1.554 3.035 0 3.596 2.002 3.596 4.604v5.583z"/>
+          </svg>
+        </a>
+  
+        <a href="https://github.com/nilesh325" target="_blank"
+           class="p-3 rounded-full bg-neutral-800 text-white transition-transform hover:scale-110 hover:bg-neutral-700">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 5.303 3.438 9.8 8.205 11.387.6.111.82-.261.82-.577 0-.285-.011-1.04-.016-2.04-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.238 1.839 1.238 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.304.76-1.604-2.665-.303-5.466-1.332-5.466-5.93 0-1.31.469-2.381 1.236-3.222-.124-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.5 11.5 0 0 1 3-.404c1.02.005 2.045.138 3 .404 2.29-1.552 3.296-1.23 3.296-1.23.655 1.653.243 2.873.12 3.176.77.841 1.235 1.912 1.235 3.222 0 4.61-2.804 5.624-5.476 5.921.43.372.823 1.103.823 2.222 0 1.604-.015 2.898-.015 3.293 0 .319.216.694.825.576C20.565 21.796 24 17.303 24 12c0-6.627-5.373-12-12-12z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
